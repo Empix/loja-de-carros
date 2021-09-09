@@ -109,3 +109,18 @@ main table td {
 main table td img {
   width: 256px;
 }
+
+main table td button {
+  border: 0;
+  background-color: #b02735;
+  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  color: #e1e2e3;
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+main table td button:hover {
+  background-color: #c02330;
+}

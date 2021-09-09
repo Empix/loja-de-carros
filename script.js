@@ -39,12 +39,22 @@
         const tdColor = document.createElement('td');
         tdColor.textContent = $('[data-js="color"]').get().value;
 
+        const tdRemove = document.createElement('td');
+        const buttonRemove = document.createElement('button');
+        buttonRemove.textContent = 'Remover';
+        tdRemove.appendChild(buttonRemove);
+
+        buttonRemove.addEventListener('click', function () {
+          this.parentNode.parentNode.remove();
+        });
+
         tdImage.appendChild(image);
         tr.appendChild(tdImage);
         tr.appendChild(tdBrandModel);
         tr.appendChild(tdYear);
         tr.appendChild(tdLicensePlate);
         tr.appendChild(tdColor);
+        tr.appendChild(tdRemove);
 
         return tr;
       },
