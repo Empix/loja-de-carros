@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>29</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div>
+          <h1 data-js="companyName">Titulo</h1>
+          <span data-js="companyPhone">(00) 0000-0000</span>
+        </div>
+      </header>
+
+      <main>
+        <form>
+          <input type="url" placeholder="Imagem (URL)" data-js="image" />
+          <input type="text" placeholder="Marca/Modelo" data-js="brand-model" />
+          <input type="number" placeholder="Ano" data-js="year" />
+          <input type="text" placeholder="Placa" data-js="license-plate" />
+          <input type="text" placeholder="Cor" data-js="color" />
+          <button type="submit" data-js="submit">Cadastrar</button>
+        </form>
+
+        <table data-js="car-table">
+          <thead>
+            <tr>
+              <th>Imagem</th>
+              <th>Marca/Modelo</th>
+              <th>Ano</th>
+              <th>Placa</th>
+              <th>Cor</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- <tr>
+              <td><img src="https://picsum.photos/256/144" /></td>
+              <td>Teste legal V8</td>
+              <td>2025</td>
+              <td>ABC-1234</td>
+              <td>Azul</td>
+            </tr> -->
+          </tbody>
+        </table>
+      </main>
+    </div>
+
+    <script src="./DOM.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
