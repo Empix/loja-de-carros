@@ -8,7 +8,7 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 
-const database = [];
+let database = [];
 
 app.get('/cars', (req, res) => {
   res.json(database);
@@ -28,6 +28,14 @@ app.post('/car', (req, res) => {
   database.push(newCar);
 
   res.json(newCar);
+});
+
+app.delete('/car', (req, res) => {
+  const { plate } = req.body;
+
+  database = database.filter((car) => car.plate !== plate);
+
+  res.json({ success: true });
 });
 
 app.listen(3000);

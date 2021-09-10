@@ -88,9 +88,7 @@
         buttonRemove.textContent = 'Remover';
         tdRemove.appendChild(buttonRemove);
 
-        buttonRemove.addEventListener('click', function () {
-          this.parentNode.parentNode.remove();
-        });
+        buttonRemove.addEventListener('click', app().handleDelete);
 
         tdImage.appendChild(image);
         tr.appendChild(tdImage);
@@ -100,8 +98,29 @@
         tr.appendChild(tdColor);
         tr.appendChild(tdRemove);
 
+        tr.setAttribute('data-plate', data.plate);
+
         const $carTable = $('[data-js="car-table"] tbody');
         $carTable.get().appendChild(tr);
+      },
+
+      handleDelete: function handleDelete() {
+        const car = this.parentNode.parentNode;
+        const plate = car.dataset.plate;
+
+        const ajax = new XMLHttpRequest();
+        ajax.open('DELETE', 'http://localhost:3000/car');
+        ajax.setRequestHeader(
+          'Content-Type',
+          'application/x-www-form-urlencoded'
+        );
+        ajax.send(`plate=${plate}`);
+
+        ajax.addEventListener('readystatechange', () => {
+          if (ajax.readyState === 4 && ajax.status === 200) {
+            car.remove();
+          }
+        });
       },
 
       companyInfo: function companyInfo() {
